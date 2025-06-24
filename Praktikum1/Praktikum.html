@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Portfolio - Yulia Rizky Afifah</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+  :root {
+    --bg-gradient-light: linear-gradient(135deg, #72edf2 10%, #5151e5 90%);
+    --bg-gradient-dark: linear-gradient(135deg, #1f1c2c, #928dab);
+    --text-light: #fff;
+    --text-dark: #222;
+    --text-muted-light: #e0e0e0aa;
+    --text-muted-dark: #bbb;
+    --card-bg-light: rgba(255, 255, 255, 0.1);
+    --card-bg-dark: rgba(30, 30, 40, 0.9);
+    --shadow-light: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    --shadow-dark: 0 8px 32px 0 rgba(10, 10, 20, 0.7);
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg-gradient-light);
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: background 0.5s ease, color 0.5s ease;
+  }
+
+  body.dark {
+    background: var(--bg-gradient-dark);
+    color: var(--text-dark);
+  }
+
+  .portfolio-container {
+    background: var(--card-bg-light);
+    border-radius: 15px;
+    box-shadow: var(--shadow-light);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 40px 60px;
+    max-width: 400px;
+    text-align: center;
+    transition: background 0.5s ease, box-shadow 0.5s ease;
+  }
+
+  body.dark .portfolio-container {
+    background: var(--card-bg-dark);
+    box-shadow: var(--shadow-dark);
+  }
+
+  .profile-photo {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #ffffffaa;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    margin-bottom: 25px;
+    transition: border-color 0.5s ease;
+  }
+
+  body.dark .profile-photo {
+    border-color: #ccc;
+  }
+
+  h1 {
+    margin: 0 0 10px 0;
+    font-weight: 600;
+    font-size: 2.2rem;
+    letter-spacing: 1.1px;
+  }
+
+  .subtitle {
+    font-weight: 300;
+    font-size: 1rem;
+    color: var(--text-muted-light);
+    margin-bottom: 30px;
+    transition: color 0.5s ease;
+  }
+
+  body.dark .subtitle {
+    color: var(--text-muted-dark);
+  }
+
+  .section-title {
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    letter-spacing: 0.9px;
+    text-align: left;
+  }
+
+  .about, .projects, .skills, .social-media {
+    text-align: left;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text-muted-light);
+    transition: color 0.5s ease;
+  }
+
+  body.dark .about,
+  body.dark .projects,
+  body.dark .skills,
+  body.dark .social-media {
+    color: var(--text-muted-dark);
+  }
+
+  ul.project-list, ul.skill-list, ul.social-list {
+    padding-left: 20px;
+  }
+
+  ul.project-list li,
+  ul.skill-list li,
+  ul.social-list li {
+    margin-bottom: 8px;
+  }
+
+  .social-list li a {
+    color: var(--text-muted-light);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .social-list li a:hover {
+    color: #ffcc00;
+  }
+
+  /* Dark mode toggle button */
+  .toggle-container {
+    text-align: right;
+    margin-bottom: 10px;
+  }
+
+  .toggle-label {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    font-weight: 600;
+    user-select: none;
+  }
+
+  .toggle-label input {
+    display: none;
+  }
+
+  .toggle-slider {
+    width: 50px;
+    height: 25px;
+    background: #ccc;
+    border-radius: 15px;
+    position: relative;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+  }
+
+  .toggle-slider::before {
+    content: "";
+    position: absolute;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    background: white;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s ease;
+  }
+
+  input:checked + .toggle-slider {
+    background: #5151e5;
+  }
+
+  input:checked + .toggle-slider::before {
+    transform: translateX(25px);
+  }
+</style>
+</head>
+<body>
+  <div class="portfolio-container" role="main" aria-label="Portfolio of Yulia Rizky Afifah">
+    <div class="toggle-container">
+      <label class="toggle-label" for="darkModeToggle">Dark Mode
+        <input type="checkbox" id="darkModeToggle" aria-label="Toggle dark mode" />
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+    <img 
+      src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=160&q=80" 
+      alt="Photo of Yulia Rizky Afifah" 
+      class="profile-photo" 
+      loading="lazy"
+    />
+    <h1>Yulia Rizky Afifah</h1>
+    <p class="subtitle">Welcome to my portfolio</p>
+
+    <div class="about-section">
+      <h2 class="section-title">About Me</h2>
+      <p class="about">
+        Hello! I am Yulia Rizky Afifah, passionate about design and technology. I love creating beautiful and functional digital experiences that make a difference.
+      </p>
+    </div>
+
+    <div class="skills-section">
+      <h2 class="section-title">Skills</h2>
+      <ul class="skill-list" aria-label="List of skills">
+        <li>Web Design & Development</li>
+        <li>Basis Data</li>
+        <li>JavaScript & React</li>
+        <li>Responsive Design</li>
+      </ul>
+    </div>
+
+    <div class="projects-section">
+      <h2 class="section-title">Projects</h2>
+      <ul class="project-list" aria-label="List of projects">
+        <li>Project One - A creative web design</li>
+        <li>Project Two - Mobile application UI/UX</li>
+        <li>Project Three - Branding and identity design</li>
+      </ul>
+    </div>
+
+    <div class="social-media-section">
+      <h2 class="section-title">Social Media</h2>
+      <ul class="social-list" aria-label="Social media links">
+        <li><a href="https://www.linkedin.com/in/yuliarizkyafifah" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://github.com/yuliarizkyafifah" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="https://instagram.com/yuliarizkyafifah" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="https://twitter.com/yuliarizkyafifah" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+      </ul>
+    </div>
+  </div>
+<script>
+  const toggle = document.getElementById('darkModeToggle');
+  const body = document.body;
+
+  // Load saved preference from localStorage
+  if (localStorage.getItem('darkMode') === 'enabled') {
+    body.classList.add('dark');
+    toggle.checked = true;
+  }
+
+  toggle.addEventListener('change', () => {
+    if (toggle.checked) {
+      body.classList.add('dark');
+      localStorage.setItem('darkMode', 'enabled');
+    } else {
+      body.classList.remove('dark');
+      localStorage.setItem('darkMode', 'disabled');
+    }
+  });
+</script>
+</body>
+</html>
+
